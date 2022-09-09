@@ -30,3 +30,12 @@ def mongo_write(data):
     account_info = data
     # Insert the documents
     collection_name.insert_one(account_info)
+
+
+"""{
+"first_name": "abdul",
+"last_name": "ghani",
+"username": "aghani",
+"password": "1234", 
+"email":"agaarbi@gmail.com"
+}"""
