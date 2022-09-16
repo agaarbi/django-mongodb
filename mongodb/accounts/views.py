@@ -4,7 +4,7 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
 import bcrypt
-
+import uuid
 
 from dotenv import dotenv_values
 config = dotenv_values(".env")
@@ -25,7 +25,9 @@ def create_user(request):
     password = request.data['password']
     password = password.encode('utf-8')
     hashed = bcrypt.hashpw(password, bcrypt.gensalt())
+    id = uuid.uuid4()
     user = {
+        "_id": id.bytes,
         "first_name": request.data['first_name'],
         "last_name": request.data['last_name'],
         "username": request.data['username'],
